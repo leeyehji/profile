@@ -1,0 +1,339 @@
+/* -------------------------------
+   🧱 기본 설정
+--------------------------------*/
+/* 폰트 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: #fafafa;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #222;
+}
+
+/* 공통 링크 스타일 */
+a {
+  --link-color: #007aff;     /* 기본 Apple 블루 */
+  --hover-color: #0051a8;    /* hover 시 진한 블루 */
+
+  color: var(--link-color);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+a:visited,
+a:focus,
+a:active {
+  color: var(--link-color);
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: var(--link-color);
+  transition: width 0.3s ease;
+}
+
+a:hover {
+  color: var(--hover-color);
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* -------------------------------
+   💬 소개 문단 스타일
+--------------------------------*/
+.intro {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  color: #2196F3;
+  font-weight: bold;
+}
+
+/* -------------------------------
+   🧩 기술 스택 영역
+--------------------------------*/
+#tech {
+  display: flex;
+  justify-content: center;    /* 가로 중앙 정렬 */
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: nowrap;          /* 한 줄 유지 */
+  overflow-x: auto;           /* 넘칠 경우 가로 스크롤 */
+  padding: 1rem 0;
+  text-align: center;
+}
+
+#tech figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  flex-shrink: 0;             /* 아이콘 크기 유지 */
+}
+
+#tech img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+#tech figcaption {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* -------------------------------
+   💼 프로젝트 섹션
+--------------------------------*/
+.projects-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-item {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 2rem;
+}
+
+.experience-left {
+  flex: 1 1 60%;
+  padding-right: 2rem;
+}
+
+.period {
+  color: grey;
+}
+
+/* 공통 figure 스타일 */
+figure {
+  padding: 0;
+  margin: 0;
+  color: grey;
+  text-align: center;
+}
+
+/* -------------------------------
+   🌄 프로젝트 이미지 배치
+--------------------------------*/
+/* 나들이 프레임: 한 줄에 1장씩 */
+#nadeuli .experience-right {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* 공통 프레임: 한 줄에 2장씩 */
+.experience-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+/* 공통 이미지 스타일 */
+.experience-right img {
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  object-fit: cover;/* 이미지가 잘리더라도 꽉 차게 */
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+/* 나들이 이미지만 더 크게 (가독성 향상) */
+#nadeuli .experience-right img {
+  max-width: 400px; /* 🔹 400px로 확대 */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* 프로젝트별 테마 링크 색상 */
+#together a {
+  --link-color: #E67069;
+  --hover-color: #FF3592;
+}
+
+#foodyMo a {
+  --link-color: #789D80;
+  --hover-color: #57694F;
+}
+
+#coinMarket a {
+  --link-color: #3695F2;
+  --hover-color: #0051a8;
+}
+/* -------------------------------
+   🧠 역할 리스트
+--------------------------------*/
+.role_p_detail {
+  padding-left: 1rem;
+}
+
+.role_p_detail li {
+  margin-bottom: 0.5rem;
+}
+
+/* -------------------------------
+    트러블슈팅
+--------------------------------*/
+/* -------------------------------
+   🧩 트러블슈팅 (개선 버전)
+--------------------------------*/
+.trouble-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2.5rem;
+  padding: 1.5rem 2rem;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.trouble-card h3 {
+  margin-bottom: 1.2rem;
+  color: #0d47a1;
+  border-left: 4px solid #1565c0;
+  padding-left: 0.6rem;
+  font-size: 1.2rem;
+}
+
+/* 항목 박스 구조 */
+.trouble-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  background: #f9fafc;
+  border-left: 4px solid transparent;
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+}
+
+.trouble-item .label {
+  flex: 0 0 90px;
+  font-weight: 600;
+  color: #1565c0;
+  text-align: right;
+  margin-right: 1rem;
+  padding-top: 0.2rem;
+}
+
+.trouble-item .content {
+  flex: 1;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* 항목별 포인트 컬러 */
+.trouble-item.problem { border-left-color: #b0bec5; }   /* 회색톤 */
+.trouble-item.solution { border-left-color: #1976d2; }  /* 파랑 */
+.trouble-item.code { border-left-color: #455a64; }      /* 진한 회색블루 */
+.trouble-item.lesson { border-left-color: #64b5f6; }    /* 하늘색 */
+
+/* 코드 블록 */
+pre {
+  background: #f3f6fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #222;
+}
+
+/* -------------------------------
+   ⏰ 타임라인 (수상 / 경험)
+--------------------------------*/
+/* 수직 연표 기본 */
+.timeline {
+  position: relative;
+  margin: 2rem 0;
+  padding-left: 60px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #ccc; /* 선은 그냥 회색 */
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.timeline-date {
+  left: -10px;
+  top: 0;
+  width: 60px;
+  font-weight: bold;
+  color: #ccc; /* 초기 회색 */
+  text-align: right;
+  transition: color 0.3s ease;
+}
+
+.timeline-content {
+  margin-left: 50px;
+  padding: 0.2rem 0.5rem;
+  color: #ccc; /* 초기 회색 */
+  transition: color 0.3s ease;
+}
+
+/* 스크롤 시 활성화 색상 */
+.timeline-item.active .timeline-date,
+.timeline-item.active .timeline-content {
+  color: #000;
+}
+
+/* -------------------------------
+   📱 반응형
+--------------------------------*/
+@media screen and (max-width: 768px) {
+  .project-item {
+    flex-direction: column;
+  }
+
+  .experience-left,
+  .experience-right {
+    flex: 1 1 100%;
+    padding: 0;
+  }
+
+  #together .experience-right {
+    grid-template-columns: 1fr; /* 투게더도 모바일에서는 한 줄 */
+  }
+
+  .experience-right img {
+    max-width: 100%;
+  }
+}
