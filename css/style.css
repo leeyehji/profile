@@ -323,17 +323,65 @@ pre {
     flex-direction: column;
   }
 
-  .experience-left,
+  .experience-left {
+    order: 1; /* 글 먼저 */
+    width: 100%;
+    padding: 0 0 1rem 0;
+  }
+
   .experience-right {
-    flex: 1 1 100%;
+    order: 2; /* 이미지 나중 */
+    width: 100%;
     padding: 0;
+    display: grid;
+    grid-template-columns: 1fr; /* 모바일에서는 모든 이미지 한 줄 */
+    gap: 1rem;
   }
-
-  #together .experience-right {
-    grid-template-columns: 1fr; /* 투게더도 모바일에서는 한 줄 */
-  }
-
   .experience-right img {
     max-width: 100%;
+    height: auto;
   }
 }
+
+/* -------------------------------
+   📱 트러블 슈팅 모바일 대응
+--------------------------------*/
+/* 모바일 전용 트러블슈팅 카드 */
+@media screen and (max-width: 768px) {
+  .trouble-item {
+    display: flex;
+    flex-direction: column; /* 세로로 쌓기 */
+    align-items: flex-start;
+    margin-bottom: 1rem; /* 카드 간 간격 */
+    padding: 0.8rem 1rem;
+    background: #f9fafc;
+    border-radius: 6px;
+  }
+
+  .trouble-item .label {
+    display: contents;
+    margin: 0 0 0.1rem 0;           /* 라벨 아래 기본 여백 제거 */
+    font-weight: bold;
+    /*color: #333;*/
+  }
+
+  .trouble-item .content,
+  .trouble-item p {
+    margin: 0;           /* 상하 마진 모두 제거 */
+    padding-top: 0.2rem; /* 필요하면 약간 패딩으로 공간 조정 */
+    line-height: 1.4;
+    margin-block-start: 0em;
+    margin-block-end: 0em;}
+
+}
+
+  .trouble-item pre {
+    width: 100%;
+    font-size: 0.85rem;
+    overflow-x: auto;
+    padding: 0.5rem;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+  }
+
+
